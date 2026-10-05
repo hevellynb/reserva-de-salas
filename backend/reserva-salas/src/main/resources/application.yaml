@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: reserva-salas
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reserva_salas
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:admin}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
