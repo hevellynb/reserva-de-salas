@@ -4,8 +4,23 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/reserva_salas
     username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD:admin}
+    password: ${DB_PASSWORD:root}
   jpa:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+app:
+  timezone: America/Fortaleza
+  jwt:
+    secret: ${JWT_SECRET:troque-este-segredo-em-producao-com-pelo-menos-32-bytes}
+    expiracao-minutos: 60
+  admin:
+    email: ${ADMIN_EMAIL:admin@srs.local}
+    senha: ${ADMIN_SENHA:Admin@123456}
+  cors:
+    origens: ${CORS_ORIGENS:http://localhost:3000,http://localhost:5173,http://localhost:4200}
